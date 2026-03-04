@@ -38,7 +38,7 @@ const DesignerPage: React.FC = () => {
       if (workflowList.length > 0 && !selectedWorkflow) {
         setSelectedWorkflow(workflowList[0]);
       }
-    } catch (error) {
+    } catch (e) {
       setWorkflows([]);
     } finally {
       setLoading(false);
@@ -58,7 +58,7 @@ const DesignerPage: React.FC = () => {
     try {
       const res = await getWorkflow(workflow.id);
       setSelectedWorkflow(res.workflow);
-    } catch (error) {
+    } catch (e) {
       message.error('获取工作流详情失败');
     }
   };
@@ -76,7 +76,7 @@ const DesignerPage: React.FC = () => {
       message.success('创建成功');
       setModalVisible(false);
       fetchWorkflows(selectedIndustry);
-    } catch (error) {
+    } catch (e) {
       // 
     }
   };
@@ -103,7 +103,7 @@ const DesignerPage: React.FC = () => {
       // 刷新当前工作流
       const res = await getWorkflow(selectedWorkflow.id);
       setSelectedWorkflow(res.workflow);
-    } catch (error) {
+    } catch (e) {
       message.error('创建步骤失败');
     }
   };
@@ -131,7 +131,7 @@ const DesignerPage: React.FC = () => {
       const res = await getWorkflow(selectedWorkflow.id);
       setSelectedWorkflow(res.workflow);
       message.success('排序更新成功');
-    } catch (error) {
+    } catch (e) {
       message.error('排序更新失败');
     }
   };
@@ -146,7 +146,7 @@ const DesignerPage: React.FC = () => {
           message.success('删除成功');
           const res = await getWorkflow(selectedWorkflow.id);
           setSelectedWorkflow(res.workflow);
-        } catch (error) {
+        } catch (e) {
           message.error('删除失败');
         }
       },

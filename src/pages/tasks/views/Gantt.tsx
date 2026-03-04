@@ -35,7 +35,7 @@ const GanttPage: React.FC = () => {
       ]);
       setProject(projectRes.project || projectRes);
       setTasks(ganttRes.data || ganttRes.tasks || []);
-    } catch (error) {
+    } catch (e) {
       // 如果甘特图API失败任务，使用普通列表
       try {
         const projectRes = await getProject(projectId);

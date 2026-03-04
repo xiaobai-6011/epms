@@ -28,7 +28,7 @@ const ProjectDetailPage: React.FC = () => {
     try {
       const res = await getProject(projectId);
       setProject(res.project || res);
-    } catch (error) {
+    } catch (e) {
       message.error('获取项目详情失败');
     }
   };
@@ -38,7 +38,7 @@ const ProjectDetailPage: React.FC = () => {
     try {
       const res = await getProjectTasks(projectId);
       setTasks(res.tasks || res.data || []);
-    } catch (error) {
+    } catch (e) {
       message.error('获取任务列表失败');
     } finally {
       setLoading(false);
@@ -49,7 +49,7 @@ const ProjectDetailPage: React.FC = () => {
     try {
       const res = await getProjectMembers(projectId);
       setMembers(res.members || res.data || []);
-    } catch (error) {
+    } catch (e) {
       console.error('获取成员失败', error);
     }
   };
@@ -58,7 +58,7 @@ const ProjectDetailPage: React.FC = () => {
     try {
       const res = await getProjectTags(projectId);
       setTags(res.tags || res.data || []);
-    } catch (error) {
+    } catch (e) {
       console.error('获取标签失败', error);
     }
   };

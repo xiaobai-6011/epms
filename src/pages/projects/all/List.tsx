@@ -24,7 +24,7 @@ const ProjectListPage: React.FC = () => {
       const res = await getProjects();
       const projects = res.projects || res.data || [];
       setDataSource(projects);
-    } catch (error) {
+    } catch (e) {
       message.error('获取项目列表失败');
     } finally {
       setLoading(false);
@@ -57,7 +57,7 @@ const ProjectListPage: React.FC = () => {
           await deleteProject(id);
           message.success('删除成功');
           fetchData();
-        } catch (error) {
+        } catch (e) {
           message.error('删除失败');
         }
       },
@@ -76,7 +76,7 @@ const ProjectListPage: React.FC = () => {
       }
       setModalVisible(false);
       fetchData();
-    } catch (error) {
+    } catch (e) {
       // 
     }
   };

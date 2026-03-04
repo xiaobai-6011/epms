@@ -30,7 +30,7 @@ const RulesPage: React.FC = () => {
     try {
       const res = await getTaskStatuses();
       setStatuses(res.data || []);
-    } catch (error) {
+    } catch (e) {
       console.error('获取状态列表失败', error);
     }
   };
@@ -40,7 +40,7 @@ const RulesPage: React.FC = () => {
     try {
       const res = await getTransitionRules();
       setRules(res.data || []);
-    } catch (error) {
+    } catch (e) {
       message.error('获取流转规则失败');
     } finally {
       setLoading(false);
@@ -77,7 +77,7 @@ const RulesPage: React.FC = () => {
           await deleteTransitionRule(id);
           message.success('删除成功');
           fetchRules();
-        } catch (error) {
+        } catch (e) {
           message.error('删除失败');
         }
       },
@@ -101,7 +101,7 @@ const RulesPage: React.FC = () => {
       }
       setModalVisible(false);
       fetchRules();
-    } catch (error) {
+    } catch (e) {
       // 
     }
   };

@@ -29,7 +29,7 @@ const ProjectCalendarPage: React.FC = () => {
       ]);
       setProject(projectRes.project || projectRes);
       setTasks(tasksRes.tasks || tasksRes.data || []);
-    } catch (error) {
+    } catch (e) {
       message.error('获取数据失败');
     } finally {
       setLoading(false);

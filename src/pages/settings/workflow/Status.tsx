@@ -24,7 +24,7 @@ const StatusPage: React.FC = () => {
     try {
       const res = await getTaskStatuses();
       setDataSource(res.data || []);
-    } catch (error) {
+    } catch (e) {
       message.error('获取状态列表失败');
     } finally {
       setLoading(false);
@@ -86,7 +86,7 @@ const StatusPage: React.FC = () => {
       }
       setModalVisible(false);
       fetchData();
-    } catch (error) {
+    } catch (e) {
       // 
     }
   };
